@@ -60,27 +60,35 @@
 ** FONTS 
 #+begin_src emacs-lisp
 (set-face-attribute 'default nil :font "JetBrains Mono" :height 160 :weight 'medium)
+(set-face-attribute 'variable-pitch nil :font "Ubuntu" :height 120 :weight 'medium)
+(set-face-attribute 'fixed-pitch nil :font "JetBrains Mono" :height 120 :weight 'medium)
+(set-face-attribute 'font-lock-comment-face nil :slant 'italic)
+(set-face-attribute 'font-lock-keyword-face nil :slant 'italic)
+(setq-default line-spacing 0.12)
 #+end_src
 
 ** DOOM MODELIME AND DOOM THEME
 #+begin_src emacs-lisp
 ;;======= DOOM MODE LINE =======
-;;(package-install 'doom-modeline)
-;;(require 'doom-modeline)
-;;(doom-modeline-mode 1)
+(package-install 'doom-modeline)
+(require 'doom-modeline)
+(doom-modeline-mode 1)
 ;; Increase font size for Doom modeline
-;;(set-face-attribute 'mode-line nil
-;;                    :font "FiraCode Nerd Font"
-;;                    :height 140)
+(set-face-attribute 'mode-line nil
+                    :font "FiraCode Nerd Font"
+                    :height 140)
 
 ;;======= DOOM THEMES ======= 
+(elpaca
+  (doom-themes :host github :repo "doomemacs/themes"
+               :files (:defaults)))
 (use-package doom-themes
   :ensure t
   :config
-  (setq doom-themes-enable-bold t    ; if nil, bold is universally disabled
-      doom-themes-enable-italic t)) ; if nil, italics is universally disabled
-(load-theme 'doom-one t)
-(setq doom-modeline-display-cpu t)
+  (setq doom-themes-enable-bold t
+        doom-themes-enable-italic t)
+  (load-theme 'doom-one t))
+
 
 
 #+end_src
