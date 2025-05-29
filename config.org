@@ -65,13 +65,15 @@
 ** DOOM MODELIME AND DOOM THEME
 #+begin_src emacs-lisp
 ;;======= DOOM MODE LINE =======
-(package-install 'doom-modeline)
-(require 'doom-modeline)
-(doom-modeline-mode 1)
-;; Increase font size for Doom modeline
+(use-package doom-modeline
+  :ensure t
+  :config
+  (doom-modeline-mode 1))
+
 (set-face-attribute 'mode-line nil
                     :font "FiraCode Nerd Font"
                     :height 140)
+
 
 ;;======= DOOM THEMES ======= 
 (elpaca
@@ -83,8 +85,6 @@
   (setq doom-themes-enable-bold t
         doom-themes-enable-italic t)
   (load-theme 'doom-one t))
-
-
 
 #+end_src
 
